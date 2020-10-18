@@ -1,4 +1,10 @@
-class Users < ApplicationController
-    def show
-    end
+class UsersController < ApplicationController
+  def show
+  end
+  
+  private
+
+  def user
+    @user = current_user
+  end
 end
