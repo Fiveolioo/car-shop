@@ -22,4 +22,8 @@ class User < ApplicationRecord
     def has_cars
         !cars.empty?
     end
+
+    def has_appointments
+        !appointments.empty?
+    end
 end

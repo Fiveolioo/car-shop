@@ -1,6 +1,12 @@
-class AppointmentsController < ApplicationControler
+class AppointmentsController < ApplicationController
    
     def index
+        if params[:user_id]
+            @appointments = User.find(params[:user_id]).appointments
+            @user = User.find(params[:user_id])
+        else
+            redirect_to user_appointments_path
+        end
     end
 
     def new
@@ -23,6 +29,6 @@ class AppointmentsController < ApplicationControler
 
     private
 
-    def car_params
+    def appointment_params
     end
 end
