@@ -1,0 +1,9 @@
+<h2>Available Shops!</h2>
+<br>
+<div>
+<% @shops.each do |shp|%>
+  <b><p><%= shp.name %></p></b>
+  <p><%= shp.location %></p>
+  <br>
+  <% end %>
+</div>
