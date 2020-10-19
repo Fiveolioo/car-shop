@@ -1,0 +1,22 @@
+<div class='buttons'>
+<%= link_to "Remove Car", user_car_path(@car.user_id, @car), method: :delete, data: { confirm: "Are You Sure?" } %>
+</div>
+<div class='buttons'>
+<%= link_to 'New Car', new_user_car_path(@user) %>
+</div>
+<div class='buttons'>
+<%= link_to 'Edit Car', edit_user_car_path(@car.user_id, @car)%>
+</div>
+
+<br>
+<ul class="image-list-small">
+  <li>
+  <div class="details">
+    <h3><%= @car.make %></h3>
+    <div class="image-details">
+      <p>Model: <%= @car.model %> </p>
+      <p>Color: <%= @car.color %> </p>
+    </div>
+  </div>
+  </li>
+</ul>  

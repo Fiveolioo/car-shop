@@ -16,13 +16,13 @@
 <br>
 <div>
   <ul class="image-list-small">
-    <% @pets.each do |pet|%>
+    <% @cars.each do |car|%>
     <li>
       <div class="details">
       <h3><%= link_to car.make, user_car_path(@user, car) %></h3>
         <div class="image-details">
-          <p>Make: <%= car.color %></p>
-          <p>Model: <%= car.color %></p>
+          <p>Make: <%= car.make %></p>
+          <p>Model: <%= car.model %></p>
           <p>Color: <%= car.color %></p>
         <% end %>
         </div>
