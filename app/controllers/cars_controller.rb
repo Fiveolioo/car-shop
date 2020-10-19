@@ -35,9 +35,30 @@ class CarsController < ApplicationController
     end
 
     def edit
+        if params[:user_id]
+            user = User.find_by(id: params[:user_id])
+            if user.nil?
+              flash[:notice] = 'User not found.'
+              redirect_to new_user_registration_path
+            else
+              @car = user.cars.find_by(id: params[:id])
+              redirect_to user_cars_path(user), flash[:notice] = 'Car not found.' if @car.nil?
+            end
+        else
+            @car = car
+            @user = current_user
+        end
     end
 
     def update
+        @car = car
+        @car.update(car_params)
+        if @car.errors.none?
+          @user = current_user
+          redirect_to user_car_path(@user, @car)
+        else
+          render :edit
+        end
     end
 
     def destroy
