@@ -62,6 +62,8 @@ class CarsController < ApplicationController
     end
 
     def destroy
+        car.destroy
+        redirect_to root_path
     end
 
     private
