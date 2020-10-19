@@ -1,4 +1,4 @@
-class Appointments < ApplicationControler
+class AppointmentsController < ApplicationControler
    
     def index
     end

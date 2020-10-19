@@ -1,0 +1,33 @@
+<% if !@user.has_cars%>
+  <div class='buttons'>
+  <%= link_to 'New Car', new_user_car_path(@user)%>
+  </div>
+  <br>
+  <h3>You Currently Do Not Have Any Cars</h3>
+  <h5>Click 'New Car' to Add Yours!</h5>
+  <br>
+
+<% else %>
+
+<h2>Your Cars!</h2>
+<div class='buttons'>
+<%= link_to 'New Car', new_user_car_path(@user)%>
+</div>
+<br>
+<div>
+  <ul class="image-list-small">
+    <% @pets.each do |pet|%>
+    <li>
+      <div class="details">
+      <h3><%= link_to car.make, user_car_path(@user, car) %></h3>
+        <div class="image-details">
+          <p>Make: <%= car.color %></p>
+          <p>Model: <%= car.color %></p>
+          <p>Color: <%= car.color %></p>
+        <% end %>
+        </div>
+      </div>
+    </ul>
+</div>
+<% end %>
+
