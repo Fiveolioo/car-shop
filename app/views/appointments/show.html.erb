@@ -1,0 +1,16 @@
+<div class="buttons ">
+<%= link_to "Cancel Appointment", user_appointment_path(@appointment.user_id, @appointment), method: :delete, data: { confirm: "Are You Sure?" } %>
+</div>
+<div class="buttons ">
+<%= link_to 'New Appointment', new_user_appointment_path(@user)%>
+</div>
+<div class="buttons ">
+<%= link_to 'Change Appointment', edit_user_appointment_path(@appointment.user_id, @appointment)%>
+</div>
+<br>
+<div>
+<p><b>Appointment for:</b> <%= @appointment.car.nickname %></p>
+<p><b>Shop:</b> <%= @appointment.shop.name %></p>
+<p><b>Reason for Visit:</b> <%= @appointment.reason_for_visit %></p>
+<p><b>Date/Time:</b> <%= @appointment.date_time.strftime('%b %e, %l:%M %p') %></p>
+</div>
