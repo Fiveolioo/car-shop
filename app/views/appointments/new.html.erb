@@ -1,0 +1,26 @@
+<h1>Request New Appointment</h1>
+<%= render partial: 'errors_form' %> 
+
+<%= form_for @appointment, url: user_appointments_path(@appointment.user_id) do |f| %>
+<%= f.hidden_field :user_id %>
+<%= f.label :car %>
+<%= f.collection_select :car_id, current_user.cars , :id, :model %>
+<br>
+<br>
+<%= f.label :shop %>
+<%= f.collection_select :shop_id, Shop.all, :id, :name %>
+<br>
+<br>
+<%= f.label :reason_for_visit%>
+<%= f.select :reason_for_visit, Appointment.reasons %>
+<br>
+<br>
+<%= f.label :date_time %>
+<%= f.datetime_select :date_time %>
+<br>
+<br>
+<%= f.submit %>
+<br>
+<br>
+<br>
+<% end %>
