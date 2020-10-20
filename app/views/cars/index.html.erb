@@ -21,6 +21,7 @@
       <div class="details">
       <h3><%= link_to car.make, user_car_path(@user, car) %></h3>
         <div class="image-details">
+          <p>Nickname: <%= car.nickname %></p>
           <p>Make: <%= car.make %></p>
           <p>Model: <%= car.model %></p>
           <p>Color: <%= car.color %></p>
