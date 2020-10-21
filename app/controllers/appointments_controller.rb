@@ -34,12 +34,35 @@ class AppointmentsController < ApplicationController
     end
 
     def edit
+        if params[:user_id]
+            user = User.find_by(id: params[:user_id])
+            if user.nil?
+              redirect_to new_user_registration_path, flash[:notice] = 'User not found.'
+            else
+              @appointment = user.appointments.find_by(id: params[:id])
+              redirect_to user_appointments_path(user), 
+              flash[:notice] = 'Appointment not found.' if @appointment.nil?
+            end
+        else
+            @appointment = appointment
+            @user = current_user
+        end
     end
 
     def update
+        @appointment = appointment
+        @appointment.update(appointment_params)
+        if @appointment.errors.none?
+          @user = current_user
+          redirect_to user_appointment_path(@user, @appointment)
+        else
+          render :edit
+        end
     end
 
     def destroy
+        appointment.destroy
+        redirect_to root_path
     end
 
     private
