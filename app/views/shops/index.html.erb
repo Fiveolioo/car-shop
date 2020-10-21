@@ -2,8 +2,10 @@
 <br>
 <div>
 <% @shops.each do |shp|%>
+    <div class="shop-card">
   <b><p><%= shp.name %></p></b>
   <p><%= shp.location %></p>
   <br>
+  </div>
   <% end %>
 </div>

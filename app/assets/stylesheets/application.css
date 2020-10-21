@@ -13,3 +13,39 @@
  *= require_tree .
  *= require_self
  */
+h1 {
+    color: red
+}
+
+h2 {
+    color: blue
+}
+
+.test {
+    color: white;
+    background-color: red;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.image-details {
+    color: white;
+    background-color: blue;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.shop-card {
+    border: 1px solid black;
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+.car-form {
+    width: 18%;
+}
+
+.car-form-field {
+    display: flex;
+    justify-content: flex-end;
+}

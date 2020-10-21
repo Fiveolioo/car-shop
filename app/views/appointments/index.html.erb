@@ -17,7 +17,7 @@
   </div>
   <br>
   <% @appointments.each do |appointment|%>
-  <p><b>Appt for:</b> <%= appointment.car.name %></p>
+  <p><b>Appt for:</b> <%= appointment.car.nickname %></p>
   <p><b>Reason for Visit: </b><%= link_to appointment.reason_for_visit, user_appointment_path(@user, appointment) %></p>
   <p><b>Shop:</b> <%= appointment.shop.name %></p>
   <p><b>Date/Time:</b> <%= appointment.date_time.strftime('%b %e, %l:%M %p') %></p>

@@ -1,25 +1,35 @@
 <h1>Edit Car!</h1>
 <%= render partial: 'errors_form' %> 
 <%= form_for @car, url: user_car_path(@car.user_id, @car) do |f| %>
+    <div class="car-form">
+    <div class="car-form-field">
     <%= f.hidden_field :user_id %>
     <%= f.label :nickname %>
     <%= f.text_field :nickname %>
+    </div>
     <br>
     <br>
+    <div class="car-form-field">
     <%= f.label :make %>
     <%= f.text_field :make %>
+    </div>
     <br>
     <br>
+    <div class="car-form-field">
     <%= f.label :model %>
     <%= f.text_field :model %> 
+    </div>
     <br>
     <br>
+    <div class="car-form-field">
     <%= f.label :color %>
     <%= f.text_field :color %>
+    </div
     <br>
     <br>
     <%= f.submit %>
     <br>
     <br>
     <br>
+    </div>
 <% end %>
