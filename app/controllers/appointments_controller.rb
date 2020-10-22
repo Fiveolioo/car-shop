@@ -11,7 +11,7 @@ class AppointmentsController < ApplicationController
 
     def new
         if params[:user_id] && !User.exists?(params[:user_id])
-            flash[:notice] = 'User not found.'
+            flash[:notice] = 'Error, user not found.'
             redirect_to new_user_registration_path
         else
             @appointment = Appointment.new(user_id: params[:user_id])
@@ -37,11 +37,11 @@ class AppointmentsController < ApplicationController
         if params[:user_id]
             user = User.find_by(id: params[:user_id])
             if user.nil?
-              redirect_to new_user_registration_path, flash[:notice] = 'User not found.'
+              redirect_to new_user_registration_path, flash[:notice] = 'Error, User not found.'
             else
               @appointment = user.appointments.find_by(id: params[:id])
               redirect_to user_appointments_path(user), 
-              flash[:notice] = 'Appointment not found.' if @appointment.nil?
+              flash[:notice] = 'Error, appointment not found.' if @appointment.nil?
             end
         else
             @appointment = appointment

@@ -12,7 +12,7 @@ class CarsController < ApplicationController
    
     def new
       if params[:user_id] && !User.exists?(params[:user_id])
-        flash[:notice] = 'User not found.'
+        flash[:notice] = 'Error, user not found.'
         redirect_to new_user_registration_path
       else
         @car = Car.new(user_id: params[:user_id])
@@ -38,11 +38,11 @@ class CarsController < ApplicationController
         if params[:user_id]
             user = User.find_by(id: params[:user_id])
             if user.nil?
-              flash[:notice] = 'User not found.'
+              flash[:notice] = 'Error, user not found.'
               redirect_to new_user_registration_path
             else
               @car = user.cars.find_by(id: params[:id])
-              redirect_to user_cars_path(user), flash[:notice] = 'Car not found.' if @car.nil?
+              redirect_to user_cars_path(user), flash[:notice] = 'Error, car not found.' if @car.nil?
             end
         else
             @car = car
