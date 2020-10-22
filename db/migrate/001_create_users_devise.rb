@@ -6,7 +6,7 @@ class CreateUsersDevise < ActiveRecord::Migration[6.0]
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
-      t.string :shop
+      t.string :provider
       t.string :uid
 
       ## Recoverable
